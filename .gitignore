@@ -1,0 +1,23 @@
+# English Transcripts & Source Materials (excluded due to copyright / license)
+taoteching.md
+taoteching.md.bak
+*.epub
+*.pdf
+*.bak
+
+# Python & Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+
+# OS & Editor
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.vscode/
+.idea/
