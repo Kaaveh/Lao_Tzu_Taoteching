@@ -80,8 +80,8 @@ Enforces Iranian Persian typographic standards:
 
 ## 4. Acceptance Criteria
 
-- [ ] `tools/apparatus.py` implemented with `strip`, `restore`, and `--check` commands.
-- [ ] Round-trip test on `source/01.md` and `source/38.md`: stripping and restoring without translation produces 100% valid tokens.
-- [ ] `tools/normalize.py`, `tools/check_parity.py`, and `tools/make_stubs.py` ported and operating cleanly.
-- [ ] `pyproject.toml` created with `[tool.book]`, `[tool.normalize]`, and commentator mapping table.
-- [ ] `make_stubs.py` successfully populates `fa/` with 87 initial `untranslated` stubs.
+- [x] `tools/apparatus.py` implemented with `strip`, `restore`, and `--check` commands.
+- [x] Round-trip test on `source/01.md` and `source/38.md`: stripping and restoring without translation produces 100% valid tokens.
+- [x] `tools/normalize.py`, `tools/check_parity.py`, and `tools/make_stubs.py` ported and operating cleanly.
+- [x] `pyproject.toml` created with `[tool.book]`, `[tool.normalize]`, and commentator mapping table.
+- [x] `make_stubs.py` successfully populates `fa/` with 87 initial `untranslated` stubs.

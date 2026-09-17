@@ -8,8 +8,8 @@ Shared architectural context and tooling pipeline: [`000-overview.md`](./000-ove
 
 | #   | Spec                                                              | Depends on | Status         |
 |-----|-------------------------------------------------------------------|------------|----------------|
-| 000 | [Overview & Shared Context](./000-overview.md)                    | —          | 🟢 Established |
-| 001 | [Apparatus, Sentinels & Tooling](./001-apparatus-and-tooling.md)   | 000        | 🟨 Ready       |
+| 000 | [Overview & Shared Context](./000-overview.md)                    | —          | ✅ Done        |
+| 001 | [Apparatus, Sentinels & Tooling](./001-apparatus-and-tooling.md)   | 000        | ✅ Done        |
 | 002 | [Style Decisions & Terminology](./002-style-and-terminology.md)   | 000        | 🟨 Ready       |
 | 003 | [Front Matter](./003-front-matter.md)                             | 001, 002   | 🟨 Ready       |
 | 004 | [Book One: The Tao (Verses 1–37)](./004-book-one-tao.md)          | 001, 002   | 🟨 Ready       |
