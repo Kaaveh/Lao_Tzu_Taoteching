@@ -18,6 +18,12 @@ class TestNormalize(unittest.TestCase):
         out, _ = normalize.normalize_text("test.md", text, CONFIG)
         self.assertEqual(out, "می‌رود و کتاب‌ها را می‌خواند.")
 
+    def test_zwnj_bi(self):
+        text = "بی عملی و بی نام بودن از اصول است."
+        out, findings = normalize.normalize_text("test.md", text, CONFIG)
+        self.assertEqual(out, "بی‌عملی و بی‌نام بودن از اصول است.")
+        self.assertEqual(len([f for f in findings if f.rule == "zwnj_bi"]), 1)
+
     def test_quotes_to_guillemets(self):
         text = 'او گفت: "این یک آزمون است."'
         out, _ = normalize.normalize_text("test.md", text, CONFIG)

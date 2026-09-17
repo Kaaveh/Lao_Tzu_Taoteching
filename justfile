@@ -4,12 +4,14 @@
 check:
     @.venv/bin/python -m tools.check_parity
     @.venv/bin/python -m tools.normalize --check
+    @.venv/bin/python -m tools.check_terms --check
     @.venv/bin/python tools/apparatus.py --check
     @.venv/bin/python -m unittest discover tools/tests
 
 # Auto-correct orthography across fa/
 fix:
     @.venv/bin/python -m tools.normalize --fix
+    @.venv/bin/python -m tools.check_terms --fix
 
 # Run roundtrip tests across source files
 test-roundtrip:

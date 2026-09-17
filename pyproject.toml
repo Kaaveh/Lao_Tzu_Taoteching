@@ -115,6 +115,41 @@ exclude = ["README.md"]
 "YEN LING-FENG" = "ین لینگ-فنگ"
 "YIN WEN" = "یین ون"
 
+[tool.book.terminology]
+# Core Taoist concepts (Spec 002 Section 3)
+"Tao" = "دائو"
+"Te" = "دِ"
+"Wu-wei" = "بی‌عملی"
+"Sage" = "فرزانه"
+"P’u" = "چوب نتراشیده"
+"Hsuan" = "تاریک"
+"Heaven and Earth" = "آسمان و زمین"
+"Ten thousand things" = "ده‌هزار موجود"
+"Immortal Way" = "راه جاودان"
+"True / Real" = "حقیقی"
+
+# Sinological textual apparatus (Spec 002 Section 1.3)
+"Mawangtui silk texts" = "دست‌نوشته‌های ابریشمی ماوانگ‌دوی"
+"Kuotien bamboo slips" = "باریکه‌های بامبوی گوادیان (گوتیِن)"
+"Fuyi edition" = "نسخه فو یی"
+"Wang Pi edition" = "نسخه وانگ پی"
+"Shuowen dictionary" = "لغت‌نامه شوئو ون"
+
+[tool.book.disallowed_terms]
+'(?<!\\p{Arabic})تائو(?!\\p{Arabic})' = { reason = "تائو disallowed; use canonical transliteration «دائو»", replacement = "دائو" }
+'(?<!\\p{Arabic})تائوئیست' = { reason = "تائوئیست disallowed; use «دائوئیست»", replacement = "دائوئیست" }
+'(?<!\\p{Arabic})تقوا(?!\\p{Arabic})' = { reason = "تقوا disallowed for Te (Virtue); use «دِ» or «فضیلت»" }
+'انفعال[ \\t]+محض' = { reason = "انفعال محض disallowed for Wu-wei; use «بی‌عملی»", replacement = "بی‌عملی" }
+'(?<!\\p{Arabic})تنبلی(?!\\p{Arabic})' = { reason = "تنبلی disallowed for Wu-wei; use «بی‌عملی»" }
+'کنده[ \\t]+درخت' = { reason = "کنده درخت disallowed for P’u; use «چوب نتراشیده»", replacement = "چوب نتراشیده" }
+'عرش[ \\t]+و[ \\t]+فرش' = { reason = "عرش و فرش disallowed for Heaven and Earth; use «آسمان و زمین»", replacement = "آسمان و زمین" }
+'ده[ \\t]+هزار[ \\t]+شی(?:ء|ء|ی)' = { reason = "ده هزار شیء disallowed for Ten thousand things; use «ده‌هزار موجود»", replacement = "ده‌هزار موجود" }
+'راه[ \\t]+فناناپذیر' = { reason = "راه فناناپذیر disallowed for Immortal Way; use «راه جاودان»", replacement = "راه جاودان" }
+'ظلمت[ \\t]+شرورانه' = { reason = "ظلمت شرورانه disallowed for Hsuan (Dark); use «تاریک» / «ژرف»" }
+'(?<!\\p{Arabic})راستین(?!\\p{Arabic})' = { reason = "راستین disallowed for True/Real; use «حقیقی» or «اصیل»" }
+'ده[ \\t]+هزار' = { reason = "Missing ZWNJ in compound number «ده‌هزار»", replacement = "ده‌هزار" }
+'دست[ \\t]+نوشته' = { reason = "Missing ZWNJ in compound «دست‌نوشته»", replacement = "دست‌نوشته" }
+
 [tool.normalize]
 arabic_yeh = true
 arabic_kaf = true
@@ -123,9 +158,11 @@ latin_digits = false
 tatweel = true
 punctuation = true
 zwnj_mi = true
+zwnj_bi = true
 zwnj_plural = true
 zwnj_comparative = true
 zwnj_collapse = true
 zwnj_trim = true
 quotes = true
 harakat = "preserve"
+

@@ -61,6 +61,7 @@ DEFAULTS = {
     "tatweel": True,
     "punctuation": True,
     "zwnj_mi": True,
+    "zwnj_bi": True,
     "zwnj_plural": True,
     "zwnj_comparative": True,
     "zwnj_collapse": True,
@@ -74,6 +75,7 @@ LATIN_TO_PERSIAN = str.maketrans("0123456789", "۰۱۲۳۴۵۶۷۸۹")
 ASCII_PUNCT = {",": "،", ";": "؛", "?": "؟"}
 
 RE_MI = regex.compile(rf"(?<![{ARABIC}‌])(ن?می)[ \t]+(?=[{ARABIC}])")
+RE_BI = regex.compile(rf"(?<![{ARABIC}‌])(بی)[ \t]+(?=[{ARABIC}])")
 RE_PLURAL = regex.compile(rf"(?<=[{ARABIC}])[ \t]+(ها(?:ی|یی|یم|یت|یش|یمان|یتان|یشان)?)(?![{ARABIC}])")
 RE_COMPARATIVE = regex.compile(rf"(?<=[{ARABIC}])[ \t]+(تر(?:ین)?)(?![{ARABIC}])")
 RE_ZWNJ_RUN = regex.compile("‌{2,}")
@@ -127,6 +129,8 @@ def _rules(config: dict):
          lambda s: RE_ZWNJ_LOOSE.sub("", s)),
         ("zwnj_mi", "mi/nemi prefix should join with ZWNJ",
          lambda s: RE_MI.sub(rf"\1{ZWNJ}", s)),
+        ("zwnj_bi", "bi prefix should join with ZWNJ",
+         lambda s: RE_BI.sub(rf"\1{ZWNJ}", s)),
         ("zwnj_plural", "plural haa should join with ZWNJ",
          lambda s: RE_PLURAL.sub(rf"{ZWNJ}\1", s)),
         ("zwnj_comparative", "comparative tar/tarin should join with ZWNJ",

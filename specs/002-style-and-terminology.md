@@ -99,3 +99,16 @@ To prevent machine translation from inventing arbitrary or conflicting translite
    - Mandatory for compounds: `بی‌عملی`، `دست‌نوشته`.
 4. **Persian Characters**:
    - Always Persian `ی` (U+06CC) and `ک` (U+06A9), never Arabic `ي` (U+064A) or `ك` (U+0643).
+
+---
+
+## 5. Acceptance Criteria
+
+- [x] Three literary registers (Poetic Verses, Classical Commentaries, and Sinological Textual Apparatus) established and documented.
+- [x] Canonical commentator transliterations for all 25+ masters codified in `pyproject.toml` (`[tool.book.commentators]`) and enforced by `apparatus.py` and `check_terms.py`.
+- [x] Core Taoist terminology and disallowed terms codified in `pyproject.toml` (`[tool.book.terminology]` and `[tool.book.disallowed_terms]`).
+- [x] Automated terminology, commentator, and formula verification tool implemented in `tools/check_terms.py` with `--check` and `--fix` capabilities.
+- [x] Persian typography and orthography rules (ZWNJ for `می-` and `بی-`, Persian digits, Persian guillemets `«...»`, Persian `ی`/`ک`) enforced by `tools/normalize.py`.
+- [x] Unit test suites in `tools/tests/test_terms.py` and `tools/tests/test_normalize.py` passing with 100% success.
+- [x] Checkers integrated into automation pipeline (`just check` and `just fix`).
+
