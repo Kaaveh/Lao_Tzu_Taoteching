@@ -49,6 +49,13 @@ jobs:
           cp _book/*.epub "dist/lao-tzu-taoteching-farsi-${version}.epub"
           cp _book-mobile/*.pdf "dist/lao-tzu-taoteching-farsi-${version}-mobile.pdf"
           tar -czf "dist/lao-tzu-taoteching-farsi-${version}-html.tar.gz" -C _book .
+
+          # Unversioned copies of the same four files for kaavehdev.ir releases/latest/download
+          cp "dist/lao-tzu-taoteching-farsi-${version}.pdf"           dist/lao-tzu-taoteching-farsi.pdf
+          cp "dist/lao-tzu-taoteching-farsi-${version}-mobile.pdf"    dist/lao-tzu-taoteching-farsi-mobile.pdf
+          cp "dist/lao-tzu-taoteching-farsi-${version}.epub"          dist/lao-tzu-taoteching-farsi.epub
+          cp "dist/lao-tzu-taoteching-farsi-${version}-html.tar.gz"   dist/lao-tzu-taoteching-farsi-html.tar.gz
+
           echo "version=${version}" >> "$GITHUB_OUTPUT"
 
       - uses: softprops/action-gh-release@v2
@@ -58,6 +65,10 @@ jobs:
             dist/lao-tzu-taoteching-farsi-${{ steps.name.outputs.version }}-mobile.pdf
             dist/lao-tzu-taoteching-farsi-${{ steps.name.outputs.version }}.epub
             dist/lao-tzu-taoteching-farsi-${{ steps.name.outputs.version }}-html.tar.gz
+            dist/lao-tzu-taoteching-farsi.pdf
+            dist/lao-tzu-taoteching-farsi-mobile.pdf
+            dist/lao-tzu-taoteching-farsi.epub
+            dist/lao-tzu-taoteching-farsi-html.tar.gz
           generate_release_notes: true
           body: |
             نسخهٔ کامل برگردان فارسی کتاب **دائو دِ جینگِ لائوتزو** (*Lao-tzu's Taoteching* / 老子道德經) همراه با گزیدهٔ تفسیرهای دو هزار سال گذشته — ترجمه و شرح رِد پاین (بیل پورتر).
@@ -67,3 +78,19 @@ jobs:
             - **EPUB**: نسخهٔ استاندارد کتاب الکترونیک با جهت راست‌به‌چپ و قلم‌های تعبیه‌شده.
             
             پروانهٔ متن فارسی: CC BY-SA 4.0. پروانهٔ کدهای ابزار مخزن: MIT.
+
+      # Rebuild kaavehdev.ir, which fetches releases/latest/download/
+      - name: Rebuild kaavehdev.ir
+        env:
+          HOOK: ${{ secrets.SITE_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "SITE_DEPLOY_HOOK_URL is not set; skipping the site rebuild."
+            exit 0
+          fi
+          response=$(curl -fsS -X POST "$HOOK")
+          echo "$response"
+          echo "$response" | grep -q '"success": *true' || {
+            echo "Deploy hook did not report success."
+            exit 1
+          }
