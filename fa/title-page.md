@@ -1,7 +1,19 @@
 ---
-status: untranslated
+status: reviewed
 ---
 
-# صفحهٔ عنوان
+![Book Cover](media/images/cover-image.jpg)
 
-<!-- TODO: translate -->
+# دائو دِ جینگِ لائوتزو
+
+![Title Page](media/images/tp.jpg)
+
+*همراه با تفسیرهای برگزیده از دو هزار سال گذشته*
+
+*ترجمهٔ رِد پاین (بیل پورتر)*
+
+---
+
+*برای گو لیان-چانگ*
+
+![Map of Ancient China](media/images/fviii-01.jpg)
