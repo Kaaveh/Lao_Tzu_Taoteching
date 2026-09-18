@@ -26,6 +26,21 @@ main p, main li, main blockquote {
   text-align: justify;
 }
 
+/* Verse and poetry styling */
+.verse {
+  margin: 1.8em 0;
+}
+.verse .line-block {
+  line-height: 2.1;
+  text-align: right;
+}
+
+/* Decorative divider */
+.divider {
+  text-align: center;
+  margin: 2em 0;
+}
+
 /* Latin runs inside Persian prose: keep them left-to-right without letting
    them break the surrounding paragraph direction. */
 main :is(code, kbd, samp) {

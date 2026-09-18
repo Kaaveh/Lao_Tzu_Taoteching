@@ -122,6 +122,9 @@ dir: rtl
 language: _language.yml
 number-sections: false
 
+filters:
+  - filters/book.lua
+
 format:
   html:
     theme:

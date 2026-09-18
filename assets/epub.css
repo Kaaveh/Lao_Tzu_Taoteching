@@ -31,3 +31,16 @@ blockquote {
   padding-inline-start: 1em;
   margin-inline-start: 0;
 }
+
+.verse {
+  margin: 1.5em 0;
+}
+.verse .line-block {
+  line-height: 2;
+  text-align: right;
+}
+
+.divider {
+  text-align: center;
+  margin: 1.8em 0;
+}
