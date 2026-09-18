@@ -43,7 +43,7 @@ jobs:
         id: name
         run: |
           version="${GITHUB_REF_NAME#v}"
-          if [ -z "$version" ]; then version="0.0.1"; fi
+          if [ -z "$version" ]; then version="0.0.2"; fi
           mkdir -p dist
           cp _book/*.pdf "dist/lao-tzu-taoteching-farsi-${version}.pdf"
           cp _book/*.epub "dist/lao-tzu-taoteching-farsi-${version}.epub"
