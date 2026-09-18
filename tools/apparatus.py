@@ -49,6 +49,7 @@ class Token:
     original: str
     restored: str
     sentinel: str
+    is_block: bool = False
 
 
 def slugify(text: str) -> str:
@@ -110,7 +111,7 @@ def extract_tokens(name: str, source_text: str) -> list[Token]:
     re_image = regex.compile(r"!\[(?P<alt>[^\]]*)\]\((?P<src>[^)]+)\)")
     re_comm = regex.compile(
         r"^\*\*(?P<name>(?:[^*]|\*[^*]+\*)+?)\*\*,?\s*"
-        r"(?P<action>(?:also\s+says|says?|said|asked|told|sighed|titles|entitles|quoting[^\n]*?says|paraphrasing[^\n]*?says|approached[^\n]*?:)[^,\n]*?[,:]?)",
+        r"(?P<action>(?:also\s+says|says?|said|asked|told|sighed|entitles[^\n]*?says|titles[^\n]*?:|quoting[^\n]*?says|paraphrasing[^\n]*?says|approached[^\n]*?:)[^,\n]*?[,:]?)",
         regex.MULTILINE,
     )
 
@@ -149,7 +150,15 @@ def extract_tokens(name: str, source_text: str) -> list[Token]:
     # Sort matches by start position
     matches.sort(key=lambda x: x[0])
 
-    for _, _, kind, orig, restored, tag in matches:
+    for m_start, m_end, kind, orig, restored, tag in matches:
+        line_start = source_text.rfind("\n", 0, m_start) + 1
+        line_end = source_text.find("\n", m_end)
+        if line_end == -1:
+            line_end = len(source_text)
+        is_block = (
+            source_text[line_start:m_start].strip() == ""
+            and (source_text[m_end:line_end].strip() == "" or kind == "COMM")
+        )
         tokens.append(Token(
             index=idx,
             kind=kind,
@@ -157,6 +166,7 @@ def extract_tokens(name: str, source_text: str) -> list[Token]:
             original=orig,
             restored=restored,
             sentinel=f"⟦{idx}:{tag}⟧",
+            is_block=is_block,
         ))
         idx += 1
 
@@ -213,6 +223,17 @@ def restore(name: str, source_text: str, draft: str) -> str:
     tokens = extract_tokens(name, source_text)
     stripped = strip(name, source_text)
 
+    # Normalize any Persian digits inside sentinels back to ASCII digits
+    draft = regex.sub(r"⟦[^⟧]+⟧", lambda m: m.group(0).translate(str.maketrans("۰۱۲۳۴۵۶۷۸۹", "0123456789")), draft)
+
+    # For verse chapters, ensure block-level sentinels start on their own paragraph
+    if re.match(r"^\d+\.md$", name):
+        for tok in tokens:
+            if tok.is_block:
+                draft = regex.sub(r"(?<!\A)\s*(" + regex.escape(tok.sentinel) + r")", r"\n\n\1", draft)
+                if tok.kind == "IMG":
+                    draft = regex.sub(r"(" + regex.escape(tok.sentinel) + r")\s*(?!\Z)", r"\1\n\n", draft)
+
     # Validate that all sentinels exist in draft
     dropped = []
     positions = []
@@ -256,6 +277,9 @@ def restore(name: str, source_text: str, draft: str) -> str:
 
     # Remove any extra empty lines left by dropped headers (like book title)
     body = re.sub(r"\n{3,}", "\n\n", body.strip())
+
+    if any(tok.kind == "BOOK_TITLE" for tok in tokens):
+        body = f"<!-- parity: offset -1 -->\n\n{body}"
 
     return f"---\nstatus: {FINAL_STATUS}\n---\n\n{body}\n"
 

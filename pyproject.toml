@@ -136,7 +136,7 @@ exclude = ["README.md"]
 "Shuowen dictionary" = "لغت‌نامه شوئو ون"
 
 [tool.book.disallowed_terms]
-'(?<!\\p{Arabic})تائو(?!\\p{Arabic})' = { reason = "تائو disallowed; use canonical transliteration «دائو»", replacement = "دائو" }
+'(?<!\p{Arabic}|تسائو\s+|چانگ\s+|تو\s+|وانگ\s+)تائو(?!\p{Arabic}|-چونگ|-لینگ|-جیان)' = { reason = "تائو disallowed; use canonical transliteration «دائو»", replacement = "دائو" }
 '(?<!\\p{Arabic})تائوئیست' = { reason = "تائوئیست disallowed; use «دائوئیست»", replacement = "دائوئیست" }
 '(?<!\\p{Arabic})تقوا(?!\\p{Arabic})' = { reason = "تقوا disallowed for Te (Virtue); use «دِ» or «فضیلت»" }
 'انفعال[ \\t]+محض' = { reason = "انفعال محض disallowed for Wu-wei; use «بی‌عملی»", replacement = "بی‌عملی" }
