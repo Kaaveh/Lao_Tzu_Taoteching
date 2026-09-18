@@ -1,0 +1,31 @@
+% Persian print preamble. Loaded via include-in-header from _quarto.yml.
+%
+% ENGINE: LuaLaTeX
+
+% Persian digits for every LaTeX counter: chapter, section, page, footnote.
+\babelprovide[import, main, maparabic]{persian}
+
+% Chinese font support via Babel character-based font switching
+\babelprovide[import, onchar=ids fonts]{chinese}
+
+\directlua{
+  if os.name == "macosx" then
+    tex.print([[\babelfont[chinese]{rm}{Songti SC}]])
+  else
+    tex.print([[\babelfont[chinese]{rm}{Noto Serif CJK SC}]])
+  end
+}
+
+% Pandoc loads selnolig unconditionally under LuaTeX. Turn it off.
+\providecommand{\selnoligoff}{}
+\selnoligoff
+
+% Footnote rule on the right. LaTeX's \footnoterule is a raw \hrule pinned to
+% the left of the column and babel does not mirror it. This box inherits
+% \bodydir TRT, so its first item lands at the right edge: rule, then \hfill.
+\renewcommand{\footnoterule}{%
+  \kern-3pt\hbox to \columnwidth{\vrule width .4\columnwidth height .4pt\hfill}\kern2.6pt}
+
+% Line spacing for Persian typography
+\usepackage{setspace}
+\setstretch{1.25}

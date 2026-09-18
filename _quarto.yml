@@ -1,0 +1,164 @@
+book-version: "نسخهٔ ۰.۰.۱"
+book-date: "۲۸ شهریور ۱۴۰۵"
+
+project:
+  type: book
+  output-dir: _book
+
+resource-path:
+  - "."
+
+book:
+  title: "دائو دِ جینگِ لائوتزو"
+  subtitle: "با گزیدهٔ تفسیرهای دو هزار سال گذشته — ترجمه و شرح رِد پاین"
+  author: "کاوه"
+
+  repo-url: https://github.com/Kaaveh/Lao_Tzu_Taoteching
+  repo-branch: main
+  repo-actions: [edit, issue]
+  downloads: [pdf, epub]
+  search: true
+
+  sidebar:
+    style: docked
+    collapse-level: 1
+
+  chapters:
+    - index.md
+    - fa/title-page.md
+    - fa/preface.md
+    - fa/translators-introduction.md
+    - part: "دفتر یکم: دائو (بخش‌های ۱ تا ۳۷)"
+      chapters:
+        - fa/01.md
+        - fa/02.md
+        - fa/03.md
+        - fa/04.md
+        - fa/05.md
+        - fa/06.md
+        - fa/07.md
+        - fa/08.md
+        - fa/09.md
+        - fa/10.md
+        - fa/11.md
+        - fa/12.md
+        - fa/13.md
+        - fa/14.md
+        - fa/15.md
+        - fa/16.md
+        - fa/17.md
+        - fa/18.md
+        - fa/19.md
+        - fa/20.md
+        - fa/21.md
+        - fa/22.md
+        - fa/23.md
+        - fa/24.md
+        - fa/25.md
+        - fa/26.md
+        - fa/27.md
+        - fa/28.md
+        - fa/29.md
+        - fa/30.md
+        - fa/31.md
+        - fa/32.md
+        - fa/33.md
+        - fa/34.md
+        - fa/35.md
+        - fa/36.md
+        - fa/37.md
+    - part: "دفتر دوم: دِ / فضیلت (بخش‌های ۳۸ تا ۸۱)"
+      chapters:
+        - fa/38.md
+        - fa/39.md
+        - fa/40.md
+        - fa/41.md
+        - fa/42.md
+        - fa/43.md
+        - fa/44.md
+        - fa/45.md
+        - fa/46.md
+        - fa/47.md
+        - fa/48.md
+        - fa/49.md
+        - fa/50.md
+        - fa/51.md
+        - fa/52.md
+        - fa/53.md
+        - fa/54.md
+        - fa/55.md
+        - fa/56.md
+        - fa/57.md
+        - fa/58.md
+        - fa/59.md
+        - fa/60.md
+        - fa/61.md
+        - fa/62.md
+        - fa/63.md
+        - fa/64.md
+        - fa/65.md
+        - fa/66.md
+        - fa/67.md
+        - fa/68.md
+        - fa/69.md
+        - fa/70.md
+        - fa/71.md
+        - fa/72.md
+        - fa/73.md
+        - fa/74.md
+        - fa/75.md
+        - fa/76.md
+        - fa/77.md
+        - fa/78.md
+        - fa/79.md
+        - fa/80.md
+        - fa/81.md
+    - fa/glossary.md
+    - fa/about-the-translator.md
+    - fa/colophon.md
+
+lang: fa-IR
+dir: rtl
+language: _language.yml
+number-sections: false
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    respect-user-color-scheme: true
+    css: assets/rtl.css
+    toc: true
+    toc-depth: 2
+    toc-title: "در این بخش"
+    link-external-newwindow: true
+
+  pdf:
+    pdf-engine: lualatex
+    documentclass: book
+    toc-depth: 1
+    classoption: [openany]
+    mainfont: "Vazirmatn-Regular.ttf"
+    mainfontoptions:
+      - Path=fonts/
+      - BoldFont=Vazirmatn-Bold.ttf
+      - Renderer=Harfbuzz
+    fontsize: 12pt
+    geometry:
+      - top=25mm
+      - bottom=25mm
+      - inner=28mm
+      - outer=22mm
+    include-in-header: tex/preamble.tex
+    template-partials:
+      - tex/title.tex
+    colorlinks: true
+
+  epub:
+    page-progression-direction: rtl
+    epub-fonts:
+      - fonts/Vazirmatn-Regular.ttf
+      - fonts/Vazirmatn-Bold.ttf
+    css: assets/epub.css
+    toc-depth: 1

@@ -2,9 +2,40 @@
 source/
 taoteching.md
 taoteching.md.bak
-*.epub
-*.pdf
 *.bak
+
+# Quarto build outputs
+/_book/
+/_book-mobile/
+/.quarto/
+/_freeze/
+/site_libs/
+
+# LaTeX intermediates
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.tex
+!tex/*.tex
+
+# Build artefacts
+/dist/
+*.pdf
+*.epub
+*.tar.gz
 
 # Python & Environment
 __pycache__/
@@ -22,3 +53,5 @@ venv/
 .Trashes
 .vscode/
 .idea/
+
+**/*.quarto_ipynb

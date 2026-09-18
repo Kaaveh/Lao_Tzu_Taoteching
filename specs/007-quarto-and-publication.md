@@ -95,8 +95,8 @@ serve:
 
 ## 5. Acceptance Criteria
 
-- [ ] `_quarto.yml` created and all 87 chapters registered in order.
-- [ ] `index.md` created with Persian book overview, version, date, and license metadata.
-- [ ] `tex/preamble.tex` configured for LuaLaTeX RTL typesetting.
-- [ ] `justfile` created with `check`, `fix`, `build`, and `serve` commands.
-- [ ] `quarto render` succeeds locally without errors for HTML, PDF, and EPUB.
+- [x] `_quarto.yml` created and all 87 chapters registered in order.
+- [x] `index.md` created with Persian book overview, version, date, and license metadata.
+- [x] `tex/preamble.tex` configured for LuaLaTeX RTL typesetting.
+- [x] `justfile` created with `check`, `fix`, `build`, and `serve` commands.
+- [x] `quarto render` succeeds locally without errors for HTML, PDF, and EPUB.
