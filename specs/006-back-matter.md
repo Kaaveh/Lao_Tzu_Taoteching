@@ -42,8 +42,9 @@ The back matter contains the critical reference apparatus that anchors Red Pine'
 
 ## 3. Acceptance Criteria
 
-- [ ] `glossary.md` translated via multi-chunk `gTranslator` with 100% of images preserved.
-- [ ] Every commentator headword in `fa/glossary.md` matches the canonical spellings in `fa/01.md`–`fa/81.md`.
-- [ ] `about-the-translator.md` and `colophon.md` translated, formatted, and verified.
-- [ ] `check_parity.py` passes for all 3 files.
-- [ ] All 3 files marked `status: reviewed`.
+- [x] `glossary.md` translated via multi-chunk `gTranslator` with 100% of images preserved.
+- [x] Every commentator headword in `fa/glossary.md` matches the canonical spellings in `fa/01.md`–`fa/81.md`.
+- [x] `about-the-translator.md` and `colophon.md` translated, formatted, and verified.
+- [x] `check_parity.py` passes for all 3 files.
+- [x] All 3 files marked `status: reviewed`.
+
