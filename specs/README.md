@@ -11,8 +11,8 @@ Shared architectural context and tooling pipeline: [`000-overview.md`](./000-ove
 | 000 | [Overview & Shared Context](./000-overview.md)                    | —          | ✅ Done        |
 | 001 | [Apparatus, Sentinels & Tooling](./001-apparatus-and-tooling.md)   | 000        | ✅ Done        |
 | 002 | [Style Decisions & Terminology](./002-style-and-terminology.md)   | 000        | ✅ Done        |
-| 003 | [Front Matter](./003-front-matter.md)                             | 001, 002   | 🟨 Ready       |
-| 004 | [Book One: The Tao (Verses 1–37)](./004-book-one-tao.md)          | 001, 002   | 🟨 Ready       |
+| 003 | [Front Matter](./003-front-matter.md)                             | 001, 002   | ✅ Done        |
+| 004 | [Book One: The Tao (Verses 1–37)](./004-book-one-tao.md)          | 001, 002   | ✅ Done        |
 | 005 | [Book Two: The Te (Verses 38–81)](./005-book-two-te.md)           | 004        | 🟨 Ready       |
 | 006 | [Back Matter & Glossary](./006-back-matter.md)                    | 004, 005   | 🟨 Ready       |
 | 007 | [Quarto Typesetting & Publication](./007-quarto-and-publication.md)| 003–006    | 🟨 Ready       |

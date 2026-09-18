@@ -38,20 +38,20 @@ Red Pine signs both prefaces with traditional Chinese calendar formulations:
 
 ## 3. Execution Checklist
 
-- [ ] `title-page.md`: Translated and formatted with cover and map images preserved.
-- [ ] `preface.md`: Processed through `gTranslator` (`-w --raw`), restored, and normalized.
-- [ ] `translators-introduction.md`:
-  - [ ] Stripped via `apparatus.py`.
-  - [ ] Translated via `gTranslator` (`-w --raw`).
-  - [ ] Sentinels restored via `apparatus.py restore`.
-  - [ ] Checked for smooth transitions across chunk seams.
-  - [ ] All 7 embedded images verified visible and pointing to `media/images/...`.
+- [x] `title-page.md`: Translated and formatted with cover and map images preserved.
+- [x] `preface.md`: Processed through `gTranslator` (`-w --raw`), restored, and normalized.
+- [x] `translators-introduction.md`:
+  - [x] Stripped via `apparatus.py`.
+  - [x] Translated via `gTranslator` (`-w --raw`).
+  - [x] Sentinels restored via `apparatus.py restore`.
+  - [x] Checked for smooth transitions across chunk seams.
+  - [x] All 7 embedded images verified visible and pointing to `media/images/...`.
 
 ---
 
 ## 4. Acceptance Criteria
 
-- [ ] All 3 files written to `fa/` with YAML frontmatter `status: reviewed`.
-- [ ] `tools/check_parity.py` validates block count parity for all 3 files.
-- [ ] `tools/normalize.py` passes with zero orthographical warnings.
-- [ ] All image references point correctly to existing files in `media/images/`.
+- [x] All 3 files written to `fa/` with YAML frontmatter `status: reviewed`.
+- [x] `tools/check_parity.py` validates block count parity for all 3 files.
+- [x] `tools/normalize.py` passes with zero orthographical warnings.
+- [x] All image references point correctly to existing files in `media/images/`.
