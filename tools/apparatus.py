@@ -230,9 +230,9 @@ def restore(name: str, source_text: str, draft: str) -> str:
     if re.match(r"^\d+\.md$", name):
         for tok in tokens:
             if tok.is_block:
-                draft = regex.sub(r"(?<!\A)\s*(" + regex.escape(tok.sentinel) + r")", r"\n\n\1", draft)
+                draft = regex.sub(rf"(?<!\A)\s*(⟦{tok.index}(?::[^⟧]+)?⟧)", r"\n\n\1", draft)
                 if tok.kind == "IMG":
-                    draft = regex.sub(r"(" + regex.escape(tok.sentinel) + r")\s*(?!\Z)", r"\1\n\n", draft)
+                    draft = regex.sub(rf"(⟦{tok.index}(?::[^⟧]+)?⟧)\s*(?!\Z)", r"\1\n\n", draft)
 
     # Validate that all sentinels exist in draft
     dropped = []
