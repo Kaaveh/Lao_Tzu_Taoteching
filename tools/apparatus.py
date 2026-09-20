@@ -27,8 +27,8 @@ REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
 
 import regex
-from tools import _md
-from tools._md import to_persian_digits
+from bargardan_tools import _md
+from bargardan_tools._md import to_persian_digits
 
 EXCLUDE = set(_md.config("book").get("exclude", []))
 TITLES = _md.config("book").get("titles", {})
