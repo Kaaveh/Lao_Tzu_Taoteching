@@ -30,13 +30,13 @@ jobs:
         run: python -m unittest discover -s tools/tests
 
       - name: Orthography
-        run: python -m tools.normalize --check
+        run: python -m bargardan_tools.normalize --check
 
       - name: Style and terminology
         run: python -m tools.check_terms --check
 
       - name: Parity
-        run: python -m tools.check_parity --check
+        run: python -m bargardan_tools.check_parity --check
 
       - name: Apparatus check
         run: python tools/apparatus.py --check

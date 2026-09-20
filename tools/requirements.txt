@@ -1,2 +1,14 @@
+# The checkers. They used to be copies of the same modules sitting in tools/
+# here, and in linji_tools/ in two other book repositories; the copies drifted
+# apart, so they now have a home of their own. tools/ keeps only what is
+# specific to this book: apparatus.py and check_terms.py.
+#
+# The zwnj_bi rule this book's pyproject enables came from this copy -- it was
+# the only one of the three that had it, and it is in the shared package now.
+#
+# Pinned to a tag on purpose. Tracking @main would mean one bad commit there
+# breaks this book's CI with nothing in this history to show what changed.
+bargardan-tools @ git+https://github.com/Kaaveh/bargardan-tools@v0.1.0
+
 regex>=2024.1.0
 pyyaml>=6.0.0

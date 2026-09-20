@@ -23,7 +23,7 @@ from pathlib import Path
 
 import regex
 
-from . import _md
+from bargardan_tools import _md
 
 REPO = Path.cwd()
 
